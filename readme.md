@@ -32,3 +32,5 @@ espace_membre
 		motdepasse-text
 
 Cf. images/tutophpmyadmin/
+
+chmod 777 1/ -R
