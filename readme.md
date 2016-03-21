@@ -32,9 +32,3 @@ espace_membre
 		motdepasse-text
 
 Cf. images/tutophpmyadmin/
-
-
-
-zergvzerqgfc"qzegfvczqes<fze
-
-
