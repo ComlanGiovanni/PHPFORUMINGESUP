@@ -40,12 +40,11 @@ if(!empty($_POST)) {
         $token = str_random(60);
         debug($token);
         $req->execute([$_POST['username'], $password, $_POST['email'], $token ]);
-        $_SESSION['flash']['success'] = 'Un email de confirmation vous a éte envoyé';
         $user_id = $db->lastInsertId();
         /*
         mail($_POST['email'],'confirmation de votre compte',"Afin de valider votre compte merci de cliquer sur ce lien \n\nhttp://127.0.0.1/forum2/confirm.php?=$user_id&token=token");
         header('Location: login.php');*/
-        die('Votre compte a bien été crée   http://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token  ');
+        die('Votre compte a bien été crée email: http://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token  ');
     }
 
 }

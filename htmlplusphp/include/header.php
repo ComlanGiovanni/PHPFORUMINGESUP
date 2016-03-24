@@ -44,6 +44,7 @@ if(session_status() == PHP_SESSION_NONE){
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="register.php">Inscription</a></li>
                 <li><a href="login.php">Connexion</a></li>
+                <li><a href="logout.php">Deconnexion</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
