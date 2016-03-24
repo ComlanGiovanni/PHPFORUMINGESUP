@@ -8,7 +8,7 @@
        \  __  /       
         '.__.'         
          |  |            
-         |  |            
+         |  |          VERSION PREOCEDURALE  
 
 #RESTE A FAIRE
 
