@@ -62,4 +62,14 @@ Voir -------------> images/tutophpmyadmin/-------------
 
 #HTML/CSS/BOOSTRAP/JS
 
-Voir la deuxieme branche
+Voir les deux autres branche
+
+
+NOTE faire un merge de la branche html-PHP sur html-css-js, la renommé ou créé un nouvelle branche et merge sur cette branche
+
+pour finalement faire une fusssion et ensuite merger sur la branche master pour avoir le forum complet, ou du moins avoir la partie PHP EN POOD
+
+
+L'interieur du forum reste a trouver 
+
+
