@@ -15,3 +15,16 @@ function str_random($length){
     return substr(str_shuffle(str_repeat($alphabet, $length)), 0,$length);
 
 }
+
+
+function log_only(){
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['auth'])) {
+        $_SESSION['flash']['danger'] = "pas le droit";
+        header('Location:login.php');
+        exit();
+    }
+}
