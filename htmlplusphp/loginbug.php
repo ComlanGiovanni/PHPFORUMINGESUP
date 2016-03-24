@@ -1,10 +1,10 @@
 <?php
 
 if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
-    require_once 'include/basededonne.php';
-    require_once 'include/fonction.php';
+    /*require_once 'include/fonction.php';*/
+    require 'include/basededonne.php';
     $req = $db->prepare('SELECT * FROM users WHERE (username = :username OR email = :username) AND confirmed_at IS NOT NULL');
-    $req->execute(['username' => $_POST['username']]);
+    $req->execute(['username'=> $_POST['username']]);
     $user = $req->fetch();
     if(password_verify($_POST['password'], $user->password)){
         session_start();

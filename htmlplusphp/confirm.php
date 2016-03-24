@@ -21,8 +21,9 @@ session_start();
 if($user && $user->confirmation_token == $token){
     $db-> prepare('UPDATE users SET confirmation_token =NULL, confirmed_at= NOW() WHERE id= ?')-> execute([$user_id]);
     $_SESSION['auth'] = $user;
+    $_SESSION['flash']['success']="Compte validé!!";
     header("Location: account.php");
 }else{
-    $_SESSION['flash']['danger']="ce token n'est plus valid";
+    $_SESSION['flash']['danger']="Ce lien n'est plus valid";
     header('Location:login.php');
 }

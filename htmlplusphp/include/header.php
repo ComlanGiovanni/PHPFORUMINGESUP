@@ -1,7 +1,7 @@
 <?php
 /*Si le statut de la session est egale a phphsessionnon
 je demarre une session*/
-if(session_status() == PHP_SESSION_NONE){
+if(session_status() == PHP_SESSION_NONE){/*SI ON NA PAS DE SESSION*/
     session_start();
 }
 ?>
@@ -42,22 +42,28 @@ if(session_status() == PHP_SESSION_NONE){
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="register.php">Inscription</a></li>
-                <li><a href="login.php">Connexion</a></li>
-                <li><a href="logout.php">Deconnexion</a></li>
+                <?php if(isset($_SESSION['auth'])): ?>
+                    <li><a href="logout.php">Deconnexion</a></li>
+                <?php else: ?>
+                    <li><a href="register.php">Inscription</a></li>
+                    <li><a href="login.php">Connexion</a></li>
+                <?php endif; ?>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
 <div class="container">
 
     <?php if(isset($_SESSION['flash'])):?>
+
         <?php foreach($_SESSION['flash'] as $type => $message):?>
-            <div class="alert alert-<?= $type;?>">
+            <div class="alert alert-<?= $type; ?>">
+
                 <?= $message; ?>
 
             </div>
         <?php endforeach; ?>
+
         <?php unset($_SESSION["flash"]); ?>
     <?php endif; ?>

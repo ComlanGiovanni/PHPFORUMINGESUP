@@ -1,5 +1,4 @@
 <?php
-require 'include/header.php';
 require_once 'include/fonction.php';
 session_start();
 if(!empty($_POST)) {
@@ -38,23 +37,27 @@ if(!empty($_POST)) {
         $req = $db->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, confirmation_token = ?");
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $token = str_random(60);
-        debug($token);
         $req->execute([$_POST['username'], $password, $_POST['email'], $token ]);
         $user_id = $db->lastInsertId();
-        /*
-        mail($_POST['email'],'confirmation de votre compte',"Afin de valider votre compte merci de cliquer sur ce lien \n\nhttp://127.0.0.1/forum2/confirm.php?=$user_id&token=token");
-        header('Location: login.php');*/
-        die('Votre compte a bien été crée email: http://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token  ');
+/*
+        $message = "Afin de valider votre compte merci de cliquer sur ce lien \r\n http://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token";
+// Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
+        $message = wordwrap($message, 70, "\r\n");
+        mail('$_POST[\'email\']', 'Valiation', $message);
+*/
+        mail($_POST['email'],'confirmation de votre compte',"Afin de valider votre compte merci de cliquer sur ce lien \n\nhttp://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token");
+        $_SESSION['flash']['success']='Votre compte a bién été crée! un email de confirmation vous a été envoyé';
+        header('Location: login.php');
+        exit();
     }
 
 }
 
 ?>
 
-
+<?php require 'include/header.php';?>
 
     <h1>s'inscrire</h1>
-
 <?php if(!empty($error)):?>
 
     <div class="alert alert-danger">

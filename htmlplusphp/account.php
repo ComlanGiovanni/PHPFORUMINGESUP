@@ -1,5 +1,5 @@
 <?php
-require 'include/fonction.php';
+require_once 'include/fonction.php';
 log_only();
 if(!empty($_POST)){
 
@@ -14,6 +14,7 @@ if(!empty($_POST)){
     }
 
 }
+
 require "include/header.php";
 ?>
 
@@ -21,11 +22,11 @@ require "include/header.php";
 
 <form action="" method="post">
     <div class="form-group">
-        <input class="from-control" type="password" name="password" placeholder="Changer de mot de passe">
+        <input class ="form-control" type="password" name="password" placeholder="Changer de mot de passe"/>
     </div>
 
     <div class="form-group">
-        <input class="from-control" type="password" name="password_confirm" placeholder="COnfrimation du mot de passe">
+        <input class="form-control" type="password" name="password_confirm" placeholder="Confrimation du mot de passe">
     </div>
     <button class="btn btn-primary">Changer mot de passe</button>
 </form>

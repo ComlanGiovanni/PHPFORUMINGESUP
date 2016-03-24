@@ -1,5 +1,5 @@
 <?php
-
+/*Fonction de debug*/
 function debug ($variable){
 
     echo '<pre>' . print_r($variable, true) .'</pre>';
@@ -18,7 +18,7 @@ function str_random($length){
 
 
 function log_only(){
-    if (session_status() == PHP_SESSION_NONE) {
+    if (session_status() == PHP_SESSION_NONE){
         session_start();
     }
 
