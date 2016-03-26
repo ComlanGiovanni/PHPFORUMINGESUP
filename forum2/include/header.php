@@ -41,7 +41,7 @@ if(session_status() == PHP_SESSION_NONE){/*SI ON NA PAS DE SESSION*/
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="home.php">Home</a></li>
                 <!-- Comment il trouve cett pu** de page ?????-->
                 <?php if(isset($_SESSION['auth'])): ?>
                     <li><a href="modifcompte.php">Mofie mes info</a></li>
