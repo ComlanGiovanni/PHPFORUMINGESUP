@@ -1,6 +1,9 @@
 <?php
 require_once 'include/fonction.php';
 session_start();
+
+log_re();
+
 if(!empty($_POST)) {
 
     $error = array();
@@ -8,6 +11,7 @@ if(!empty($_POST)) {
 
     require 'include/basededonne.php';
     $pseudotaille =strlen($_POST['username']);
+
     if($pseudotaille <=50) {
         /*https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/memento-des-expressions-regulieres*/
         /*expersion regulier  compirs entre a et z et 0 et 9 et des underscore*/
@@ -53,6 +57,7 @@ if(!empty($_POST)) {
         $error['password'] = "a-zA-Z0-9";
     }
     */
+
     if ($mdpsec > 8) {
         if (empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']) {
             $error['password'] = "Vos mot de passe ne correspond pas";
@@ -73,8 +78,9 @@ if(!empty($_POST)) {
         // Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
                 $message = wordwrap($message, 70, "\r\n");
                 mail('$_POST[\'email\']', 'Valiation', $message);
-        */
+
         mail($_POST['email'],'confirmation de votre compte',"Afin de valider votre compte merci de cliquer sur ce lien \n\nhttp://127.0.0.1/forum2/confirm.php?id=$user_id&token=$token");
+        */
         $_SESSION['flash']['success']='Votre compte a bién été crée! un email de confirmation vous a été envoyé';
         header('Location: login.php');
         exit();

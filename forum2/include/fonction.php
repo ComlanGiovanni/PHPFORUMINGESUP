@@ -23,43 +23,49 @@ function log_only(){
     }
 
     if (!isset($_SESSION['auth'])) {
-        $_SESSION['flash']['danger'] = "pas le droit veuillez vous connécté";
+        $_SESSION['flash2']['danger'] = "pas le droit veuillez vous connécté";
         header('Location:login.php');
         exit();
     }
 }
 
-function cookie_reco(){
+function log_re(){
+    if(isset($_SESSION['auth'])){
+        header('Location: account.php');
+        exit();
+    }
+}
+
+function cookie_token(){
 
     if (session_status() == PHP_SESSION_NONE){
         session_start();
     }
 
-    if(isset($_COOKIE['cookie']) && isset($_SESSION['auth'])){
+    if(isset($_COOKIE['cookie']) && !isset($_SESSION['auth'])){
         require_once 'basededonne.php';
         if(!isset($db)){
             global $db;
         }
         $cookie_token = $_COOKIE['cookie'];
-        $parts = explode('=',$cookie_token);
+        $parts = explode('==',$cookie_token);
         $user_id = $parts[0];
         $req = $db->prepare('SELECT * FROM users WHERE id = ?');
         $req->execute([$user_id]);
         $user = $req->fetch();
         if($user){
-            $expected = $user_id. '=' . $user->cookie_token . sha1($user_id . 'pffaucuneeideedecle');
+            $expected = $user_id. '==' . $user->cookie_token . sha1($user_id . 'pffaucuneeideedecle');
             if($expected == $cookie_token){
                 session_start();
+                unset($_SESSION['flash2']);
+                $_SESSION ['flash']['success']= "Vous etes maintenant connécté";
                 $_SESSION['auth'] = $user;
                 setcookie('cookie', $cookie_token, time() + 60 * 60 * 24 * 7);
             }else{
                 setcookie('cookie', NULL, -1);
             }
-
         }else{
             setcookie('cookie', NULL, -1);
         }
     }
-    unset($_SESSION["flash"]);
-
 }

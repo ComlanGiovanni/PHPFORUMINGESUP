@@ -69,3 +69,16 @@ if(session_status() == PHP_SESSION_NONE){/*SI ON NA PAS DE SESSION*/
 
         <?php unset($_SESSION["flash"]); ?>
     <?php endif; ?>
+
+     <?php if(isset($_SESSION['flash2'])):?>
+
+        <?php foreach($_SESSION['flash2'] as $type => $message2):?>
+            <div class="alert alert-<?= $type; ?>">
+
+                <?= $message2; ?>
+
+            </div>
+        <?php endforeach; ?>
+
+        <?php unset($_SESSION["flash2"]); ?>
+    <?php endif; ?>

@@ -24,6 +24,6 @@ if($user && $user->confirmation_token == $token){
     $_SESSION['flash']['success']="Compte validé!!";
     header("Location: account.php");
 }else{
-    $_SESSION['flash']['danger']="Ce lien plus valid";
+    $_SESSION['flash2']['danger']="Ce lien plus valid";
     header('Location:login.php');
 }

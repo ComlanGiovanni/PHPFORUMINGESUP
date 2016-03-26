@@ -1,12 +1,11 @@
 <?php
 require_once 'include/fonction.php';
 
-cookie_reco();
+cookie_token();
 
-if(isset($_SESSION['auth'])){
-    header('Location: account.php');
-    exit();
-}
+log_re();
+
+$pseudo = htmlspecialchars($_POST['username']);
 
 if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once 'include/basededonne.php';
@@ -22,15 +21,17 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
         $_SESSION['auth'] = $user;
         $_SESSION ['flash']['success']= "Vous etes maintenant connécté";
         if($_POST['remember']){
-            $cookietoken = str_random(250);
-            $db->prepare('UPDATE users SET cookie_token = ? WHERE id = ?')->execute([$cookietoken, $user->id]);
-            setcookie('cookie', $user->id . "==" . $cookietoken . sha1($user->id .'pffaucuneeideedecle'), time() + 60 * 60 * 24 *7);
+            $cookie_token = str_random(250);
+            $db->prepare('UPDATE users SET cookie_token = ? WHERE id = ?')->execute([$cookie_token, $user->id]);
+            setcookie('cookie', $user->id . '==' . $cookie_token . sha1($user->id .'pffaucuneeideedecle'), time() + 60 * 60 * 24 *7);
         }
         header('Location: account.php');
         exit();
     }else{
         $_SESSION['flash']['danger']= 'Identificant ou mot de passe incorrect';
     }
+}else{
+    $_SESSION['flash']['danger']= 'Remplir tous cahmps complet !';
 }
 ?>
 

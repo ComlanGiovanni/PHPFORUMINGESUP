@@ -4,20 +4,28 @@ require 'include/fonction.php';
 log_only();
 
 /*verifier que des donner on ete poster*/
-if(!empty($_POST)){
-/*bon je ne sais pas pourquoi ça bug ici */
-    if (!empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']){
+/*
+ * si post n'existe pas et qu'il est vide
+ * non
+ * sinon
+ * bad
+ * */
+
+if(empty($_POST['password']) || empty($_POST['password_confirm']) && $_POST == null){
+
+    $_SESSION['flash']['danger'] = "Veillez remplir tout les champs";
+}else{
+    /*bon je ne sais pas pourquoi ça bug ici */
+    if ($_POST['password'] != $_POST['password_confirm']){
         $_SESSION['flash']['danger'] = "Les mot de passes ne correspondent pas";
-    }else {
+    }else if($_POST['password'] = $_POST['password_confirm']){
         $user_id = $_SESSION['auth']->id;
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         require_once "include/basededonne.php";
         $db->prepare('UPDATE users SET password = ? WHERE id = ?')->execute([$password, $user_id]);
         $_SESSION['flash']['success'] = "Le mot de passe a été mise a jour";
-    }
 
-}else{
-    $_SESSION['flash']['danger'] = "Veillez remplir tout les champs";
+    }
 }
 
 require "include/header.php";
