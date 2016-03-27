@@ -2,7 +2,7 @@
 
 if(isset($_GET['id']) && isset($_GET['token'])){
     require 'include/basededonne.php';
-    $req = $db->prepare('SELECT * FROM users WHERE id = ? AND reset_token IS NOT NULL AND reset_token = ? AND reset_at > DATE_SUB(NOW(), INTERVAL 30 MINUTE');
+    $req = $db->prepare('SELECT * FROM users WHERE id = ? AND reset_token IS NOT NULL AND reset_token = ? AND reset_at > DATE_SUB(NOW(), INTERVAL 30 MINUTE)');
     $req->execute([$_GET['id'], $_GET['token']]);
     $user = $req->fetch();
 
@@ -36,12 +36,12 @@ if(isset($_GET['id']) && isset($_GET['token'])){
 
 <?php require "include/header.php"; ?>
 
-    <h1>modifié</h1>
+    <h1>modifié votre mot de passe!</h1>
 
     <form action="" method="POST">
         <div class="form-group">
             <label for="">Mot de passe</label>
-            <input type="text" name="password" class="form-control"/>
+            <input type="password" name="password" class="form-control"/>
         </div>
 
         <div class="form-group">

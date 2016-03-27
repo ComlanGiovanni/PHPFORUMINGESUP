@@ -43,6 +43,7 @@ require "include/header.php";
         <input class="form-control" type="password" name="password_confirm" placeholder="Confrimation du mot de passe">
     </div>
     <button class="btn btn-primary">Changer mot de passe</button>
+    <p>pseudo, mail etc...</p>
 </form>
 
 <?php require 'include/footer.php'; ?>

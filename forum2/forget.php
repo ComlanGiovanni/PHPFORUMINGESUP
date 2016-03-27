@@ -1,4 +1,5 @@
 <?php
+
 if(!empty($_POST) && !empty($_POST['email'])){
     require_once 'include/basededonne.php';
     require_once 'include/fonction.php';
@@ -9,7 +10,6 @@ if(!empty($_POST) && !empty($_POST['email'])){
         session_start();
         $reset_token = str_random(60);
         $db->prepare('UPDATE users SET reset_token = ?, reset_at = NOW() WHERE id = ?')->execute([$reset_token,$user->id]);
-        $_SESSION['auth'] = $user;
         $_SESSION ['flash']['success']= "Lien a éte envoyé par email";
         mail($_POST['email'],'reeeu de mot de passe',"ergareg \n\nhttp://127.0.0.1/forum2/reset.php?id=($user->id)&token=$reset_token");
         header('Location: login.php');
@@ -17,6 +17,8 @@ if(!empty($_POST) && !empty($_POST['email'])){
     }else{
         $_SESSION['flash']['danger']= 'Aucun compte ne corresponds a ce email';
     }
+}else{
+    $_SESSION['flash']['danger']= 'Remplir tous cahmps complet !';
 }
 ?>
 
