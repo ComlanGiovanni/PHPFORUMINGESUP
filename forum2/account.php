@@ -20,6 +20,7 @@ log_only();
 
 <div class="container">
     <h1>Bonjour <?= $_SESSION['auth']->username ?></h1>
+    <h1>Votre ID : <?= $_SESSION['auth']->id ?></h1>
     <h1>Mail: <?= $_SESSION['auth']->email ?></h1>
     <h1>Date de validation <?= $_SESSION['auth']->confirmed_at ?></h1>
 </div>

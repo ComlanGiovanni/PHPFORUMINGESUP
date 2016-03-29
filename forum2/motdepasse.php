@@ -3,6 +3,7 @@ require 'include/fonction.php';
 require_once 'include/basededonne.php';
 
 log_only();
+
 /*
  * si post n'existe pas et qu'il est vide
  * non

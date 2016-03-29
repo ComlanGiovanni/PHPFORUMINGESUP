@@ -62,8 +62,8 @@ if(session_status() == PHP_SESSION_NONE){
                     </li>
                     -->
                     <li><a href="">Paramètres</a></li>
-                    <li><a href="">Mes informations</a></li>
-                    <li><a href="">Mes Infromation public</a></li>
+                    <li><a href="messpriv.php">Message privé</a></li>
+                    <li><a href="infopublic.php">Mes Infromation public</a></li>
                     <li><a href="motdepasse.php">Mot de passe</a></li>
                     <li><a href="logout.php">Deconnexion</a></li>
                 <?php else: ?>

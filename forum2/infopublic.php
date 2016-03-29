@@ -1,16 +1,18 @@
 <?php
-require "include/header.php";
+require "include/headerparm.php";
 require 'include/basededonne.php';
 require_once 'include/fonction.php';
 log_only();
+$req = $db -> prepare('SELECT * FROM users WHERE id = ?');
+$req->execute([$_SESSION['auth']->id]);
+$user = $req-> fetch();
+/*
+debug($user);
+*/
 
-if(isset($_GET['id']) AND $_GET['id'] > 0) {
-    /*Securisation de la varible entrer en nombre*/
-    /*$getid = intval($_GET['id']);*/
-    $req = $db -> prepare('SELECT * FROM users WHERE id = ?');
-    $req->execute([$_GET['id']]);
-    $user = $req-> fetch();
-}
+/*
+ * photo uploader
+ * */
 ?>
 <div class="container">
     <p><?=$user->id?></p>
