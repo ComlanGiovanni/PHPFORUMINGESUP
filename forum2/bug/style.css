@@ -1,0 +1,95 @@
+.fontalltext {
+    font-family: AmarathRegular;
+}
+
+.footer-distributed {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #F0F8FF;
+}
+
+.footer-distributed .footer-center p a{
+    color: #F0F8FF;
+}
+
+.footer-distributed h3 {
+    color: black;
+}
+
+.footer-distributed .footer-links {
+    color: black;
+}
+
+.footer-distributed .footer-company-name {
+    color: black;
+}
+
+.footer-distributed .footer-center p span {
+    color: black;
+}
+
+.footer-distributed .footer-center p {
+    color: black;
+}
+
+.footer-distributed .footer-company-about
+{
+    color: black;
+}
+.footer-distributed .footer-company-about span {
+    color: black;    
+}
+
+.tdr {
+    text-align: center;
+    font-size: 16px;
+    text-shadow: 1px 1px blue;
+    color: blue;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-inverse {
+    background-color: #F0F8FF;
+    border-color: transparent;
+
+}
+
+.navbar-inverse .navbar-brand {
+    color: black;
+}
+
+.navbar-inverse .navbar-brand:focus {
+    color: gray;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: gray;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: black; 
+}
+
+.navbar-inverse .navbar-nav>li>a:focus {
+    color: gray; 
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: gray; 
+}
+
+.taille {
+    height:30px;
+    width: 30px;
+    margin: auto;
+}
+
+.taille:hover {
+    -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+    filter: blur(2px);
+    cursor: pointer;
+}

@@ -17,7 +17,7 @@ if(!empty($_POST)) {
         /*expersion regulier  compirs entre a et z et 0 et 9 et des underscore*/
         if (empty($_POST['username']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['username'])) {
             $error['username'] = "Votre pseudo n'est pa valide (a-z A-Z 0-9)";
-        } else {
+        }else {
             $req = $db->prepare('SELECT id FROM users WHERE username = ?');
             $req->execute([$_POST['username']]);
             $user = $req->fetch();/*recuperer le premier enregistrement*/
@@ -42,11 +42,11 @@ if(!empty($_POST)) {
             $req->execute([$_POST['email']]);
             $user = $req->fetch();/*recuperer le premier enregistrement*/
             if ($user) {
-                $error['email'] = "ce mail est déja utiliser";
+                $error['email'] = "Ce mail est déja utiliser";
             }
         }
     }else{
-        $error['mail'] = "les deux mails ne corresponde pas";
+        $error['mail'] = "Les deux mails ne corresponde pas";
     }
 
     $mdpsec =strlen($_POST['password']);
@@ -113,31 +113,30 @@ if(!empty($_POST)) {
         <form action="" method="POST">
             <div class="form-group">
                 <label for="">Pseudo</label>
-                <input type="text" name="username" class ="form-control" value="<?= (!empty($pseudo))?$pseudo:'' ?>"/>
+                <input required type="text" name="username" class ="form-control" value="<?= (!empty($pseudo))?$pseudo:'' ?>"/>
             </div>
 
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" name="email" class ="form-control" value="<?= (!empty($email))?$email:'' ?>"/>
+                <input required type="email" name="email" class ="form-control" value="<?= (!empty($email))?$email:'' ?>"/>
             </div>
 
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="email" name="emailconfirm" class ="form-control" value="<?= (!empty($email2))?$email2:'' ?>"/>
+                <input required type="email" name="emailconfirm" class ="form-control" value="<?= (!empty($email2))?$email2:'' ?>"/>
             </div>
 
             <div class="form-group">
                 <label for="">Mot de passe</label>
-                <input type="password" name="password" class ="form-control"/>
+                <input required type="password" name="password" class ="form-control"/>
             </div>
 
             <div class="form-group">
                 <label for="">Confirmer Mot de passe</label>
-                <input type="password" name="password_confirm" class ="form-control"/>
+                <input required type="password" name="password_confirm" class ="form-control"/>
             </div>
 
             <button type="submit" class="btn btn-primary">M'inscrire</button>
-            <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
         </form>
     </div>
 

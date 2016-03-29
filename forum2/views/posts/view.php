@@ -40,6 +40,9 @@ $comments = $com->fetchAll();
 
 <h3><?= count($comments); ?> commentaire</h3>
 
+<!--
+Pour chaque commentaire on lui applique l'element qui se trouve dans comment.php
+-->
 <?php foreach($comments as $comment): ?>
     <?php require ELEMENT. 'comment.php';?>
 <?php endforeach;?>

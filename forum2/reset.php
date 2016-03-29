@@ -35,22 +35,22 @@ if(isset($_GET['id']) && isset($_GET['token'])){
 
 
 <?php require "include/header.php"; ?>
+    <div class="container">
+        <h1>modifié votre mot de passe!</h1>
 
-    <h1>modifié votre mot de passe!</h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="nvmpd">Nouveau mot de passe</label>
+                <input type="password" id="nvmpd" name="password" class="form-control"/>
+            </div>
 
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="">Mot de passe</label>
-            <input type="password" name="password" class="form-control"/>
-        </div>
+            <div class="form-group">
+                <label for="nvmpdconf">Confirmation de mot de passe</label>
+                <input type="password" id="nvmpdconf" name="password_confirm" class="form-control"/>
+            </div>
 
-        <div class="form-group">
-            <label for="">Confirmation de mot de passe</label>
-            <input type="password" name="password_confirm" class="form-control"/>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Se connecter</button>
-        <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
-    </form>
-
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
+        </form>
+    </div>
 <?php require 'include/footer.php'; ?>

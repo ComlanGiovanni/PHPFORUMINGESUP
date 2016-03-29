@@ -6,16 +6,19 @@ cookie_token();
 log_re();
 
 $pseudo = htmlspecialchars($_POST['username']);
-
+/*
+ *
+ * $mdppswd = htmlspecialchars($_POST['password']);
+ * Nornamlement on n'a pas bessoin de sécurisé
+ * l'entrer vue qu'on utilise une fonction de php
+ * password_verify
+ *
+ * */
 if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
     require_once 'include/basededonne.php';
     $req = $db->prepare('SELECT * FROM users WHERE (username = :username OR email = :username) AND confirmed_at IS NOT NULL');
     $req->execute(['username' => $_POST['username']]);
     $user = $req->fetch();
-    /*
-    $usernamesec = htmlspecialchars($_POST['username']);
-    $usernamesec = htmlspecialchars($_POST['password']);
-    */
     if(password_verify($_POST['password'], $user->password)){
         session_start();
         $_SESSION['auth'] = $user;
@@ -28,7 +31,7 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])){
         header('Location: account.php');
         exit();
     }else{
-        $_SESSION['flash']['danger']= 'Identificant ou mot de passe incorrect';
+        $_SESSION['flash']['danger']= 'Identificant ou mot de passe incorrect! Pensez a validé votre compte';
     }
 }else{
     $_SESSION['flash']['danger']= 'Remplir tous cahmps complet !';

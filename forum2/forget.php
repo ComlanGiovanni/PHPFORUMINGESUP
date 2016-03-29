@@ -9,7 +9,7 @@ if(!empty($_POST) && !empty($_POST['email'])){
         session_start();
         $reset_token = str_random(60);
         $db->prepare('UPDATE users SET reset_token = ?, reset_at = NOW() WHERE id = ?')->execute([$reset_token,$user->id]);
-        $_SESSION ['flash']['success']= "Lien a éte envoyé par email";
+        $_SESSION ['flash']['success']= "Le lien a éte envoyé par email";
         mail($_POST['email'],'reeeu de mot de passe',"ergareg \n\nhttp://127.0.0.1/forum2/reset.php?id=($user->id)&token=$reset_token");
         header('Location: login.php');
         exit();
@@ -24,15 +24,16 @@ if(!empty($_POST) && !empty($_POST['email'])){
 
 <?php require "include/header.php"; ?>
 
-<h1>Mot de passe oublié</h1>
+<div class="container">
+    <h1>Mot de passe oublié</h1>
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="">Email</label>
+            <input required type="email" name="email" class="form-control"/>
+        </div>
 
-<form action="" method="POST">
-    <div class="form-group">
-        <label for="">email</label>
-        <input required type="email" name="email" class="form-control"/>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Se connecter</button>
-</form>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+</div>
 
 <?php require 'include/footer.php'; ?>

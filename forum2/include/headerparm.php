@@ -75,20 +75,6 @@ if(session_status() == PHP_SESSION_NONE){
     </div>
 </nav>
 
-<div class="container">
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Bienvenue sur le Forum</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <?php if(isset($_SESSION['auth'])): ?>
-                <p>Vous êtes bien connecté</p>
-            <?php else: ?>
-                <p><a class="btn btn-primary btn-lg" href="/forum2/login.php" role="button">Connecte vous pour publié un commentaire &raquo;</a></p>
-            <?php endif; ?>
-        </div>
-    </div>
-</div>
-
 <?php if(isset($_SESSION['flash'])):?>
 
     <?php foreach($_SESSION['flash'] as $type => $message):?>
