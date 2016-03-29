@@ -9,3 +9,9 @@ try {
 } catch (PDOException $pe) {
     echo $pe->getMessage();
 }
+
+/*
+ *
+ *Simple connexion a la base de donnée
+ *
+ */

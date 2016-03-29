@@ -92,48 +92,53 @@ if(!empty($_POST)) {
 
 <?php require 'include/header.php';?>
 
-    <h1>s'inscrire</h1>
-<?php if(!empty($error)):?>
 
-    <div class="alert alert-danger">
-        <p>Vous n'avez pas remplis le formulaire correctement</p>
-        <ul>
-            <?php foreach($error as $err): ?>
-                <li><?= $err; ?></li>
-            <?php endforeach; ?>
-        </ul>
+    <div class="container">
+        <h1>S'inscrire</h1>
+        <a href="login.php">(Connexion)</a>
+        <br>
+        <br>
+        <?php if(!empty($error)):?>
+
+            <div class="alert alert-danger">
+                <p>Vous n'avez pas remplis le formulaire correctement</p>
+                <ul>
+                    <?php foreach($error as $err): ?>
+                        <li><?= $err; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+        <?php endif; ?>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="">Pseudo</label>
+                <input type="text" name="username" class ="form-control" value="<?= (!empty($pseudo))?$pseudo:'' ?>"/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="email" class ="form-control" value="<?= (!empty($email))?$email:'' ?>"/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="email" name="emailconfirm" class ="form-control" value="<?= (!empty($email2))?$email2:'' ?>"/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Mot de passe</label>
+                <input type="password" name="password" class ="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="">Confirmer Mot de passe</label>
+                <input type="password" name="password_confirm" class ="form-control"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">M'inscrire</button>
+            <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
+        </form>
     </div>
-
-<?php endif; ?>
-
-    <form action="" method="POST">
-        <div class="form-group">
-            <label for="">Pseudo</label>
-            <input type="text" name="username" class ="form-control" value="<?= (!empty($pseudo))?$pseudo:'' ?>"/>
-        </div>
-
-        <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" name="email" class ="form-control" value="<?= (!empty($email))?$email:'' ?>"/>
-        </div>
-
-        <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" name="emailconfirm" class ="form-control" value="<?= (!empty($email2))?$email2:'' ?>"/>
-        </div>
-
-        <div class="form-group">
-            <label for="">Mot de passe</label>
-            <input type="password" name="password" class ="form-control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="">Confirmer Mot de passe</label>
-            <input type="password" name="password_confirm" class ="form-control"/>
-        </div>
-
-        <button type="submit" class="btn btn-primary">M'inscrire</button>
-        <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
-    </form>
 
 <?php require 'include/footer.php'?>

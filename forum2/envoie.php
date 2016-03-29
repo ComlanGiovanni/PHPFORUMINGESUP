@@ -1,11 +1,13 @@
 <?php
-session_start();
+dem_session();
+/*
+ * session_start();
+*/
 require 'include/basededonne.php';
 if(isset($_POST['envoiemessage'])){
     if(isset($_POST['destinataire'],$_POST['message']) AND !empty($_POST['destinataire']) AND !empty($_POST['message'])){
         $destinataire = htmlspecialchars($_POST['destinataire']);
         $message = htmlspecialchars($_POST['message']);
-
         $id_destinataire = $db->prepare('SELECT id FROM users WHERE username = ?');
         $id_destinataire->execute(array($destinataire));
         $id_destinataire = $id_destinataire->fetch();

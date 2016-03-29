@@ -1,5 +1,4 @@
 <?php
-
 if(!empty($_POST) && !empty($_POST['email'])){
     require_once 'include/basededonne.php';
     require_once 'include/fonction.php';
@@ -15,10 +14,10 @@ if(!empty($_POST) && !empty($_POST['email'])){
         header('Location: login.php');
         exit();
     }else{
-        $_SESSION['flash']['danger']= 'Aucun compte ne corresponds a ce email';
+        $_SESSION['flash']['danger']= 'Aucun compte ne corresponds à ce email';
     }
 }else{
-    $_SESSION['flash']['danger']= 'Remplir tous cahmps complet !';
+    $_SESSION['flash']['danger']= 'Remplir tous les champs!';
 }
 ?>
 
@@ -30,11 +29,10 @@ if(!empty($_POST) && !empty($_POST['email'])){
 <form action="" method="POST">
     <div class="form-group">
         <label for="">email</label>
-        <input type="email" name="email" class="form-control"/>
+        <input required type="email" name="email" class="form-control"/>
     </div>
 
     <button type="submit" class="btn btn-primary">Se connecter</button>
-    <!--<input type="text" name="username" class ="form-control" required/> Pour forcer l'entrer des valeur-->
 </form>
 
 <?php require 'include/footer.php'; ?>

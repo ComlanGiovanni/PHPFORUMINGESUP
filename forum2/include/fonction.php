@@ -1,19 +1,29 @@
 <?php
-/*Fonction de debug*/
 function debug ($variable){
-
     echo '<pre>' . print_r($variable, true) .'</pre>';
+    /*
+     * Fonction de debug
+     *utilisé lors de la production
+     *
+     * */
 }
 
-/*
-cette fonction melange et repete lalphabet par 60 et fait un substring de 0 e 60
-*/
+function dem_session(){
+    if (session_status() == PHP_SESSION_NONE){
+        session_start();
+    }
+    /*
+     *En POO inclure dans les autres fonction et dans les pages qui en n'on bessoin
+     */
+}
 
 function str_random($length){
 
     $alphabet ="0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
     return substr(str_shuffle(str_repeat($alphabet, $length)), 0,$length);
-
+    /*
+     * cette fonction melange et repete lalphabet par 60 et fait un substring de 0 e 60
+     */
 }
 
 
@@ -27,6 +37,9 @@ function log_only(){
         header('Location:login.php');
         exit();
     }
+    /*
+     *Cette fonction autorise ou non la connexion a une page dans ke cas contraire renvoie sur la page de connexion
+     */
 }
 
 function log_re(){
@@ -34,6 +47,9 @@ function log_re(){
         header('Location: account.php');
         exit();
     }
+    /*
+     * Cette fontion renvoie sur le page d'account si il n'y a pas d'utilisateur connecté
+     */
 }
 
 function cookie_token(){
@@ -68,4 +84,9 @@ function cookie_token(){
             setcookie('cookie', NULL, -1);
         }
     }
+    /*
+     * Cett fonction crée un cookie et l'enregistre
+     * dans la base de donné et supprime directement
+     * le cookie si le cookie ne correspons pas a celui dans la base de donéé
+     */
 }
