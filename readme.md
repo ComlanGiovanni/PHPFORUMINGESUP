@@ -4,7 +4,7 @@ Le forum a été realiser avec #PHP #HTML #CSS #JS #BOOSTRAP plus précisement a
 
 #Collaborateur
 					|||GitHub|||
-				------------------------------------
+					------------------------------------
 	#COMLAN Giovanni ----->   https://github.com/ComlanGiovanni
 	#NADEAU BOBAN    ----->   https://github.com/nadeauboban
 	#Etienne Gobion  ----->   https://github.com/etiennegithub
