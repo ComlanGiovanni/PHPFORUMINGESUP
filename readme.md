@@ -1,6 +1,6 @@
 #PHP INGESUP FORUM
 
-Le forum a été realiser avec #HTML #CSS #JS #BOOSTRAP plus précisement avec le theme flatly de #bootswatch (https://bootswatch.com/).
+Le forum a été realiser avec #PHP #HTML #CSS #JS #BOOSTRAP plus précisement avec le theme flatly de #bootswatch (https://bootswatch.com/).
 
 Pour faire fonctionner le site il faudras installer:
 
@@ -47,7 +47,3 @@ Entre le nom d'utilisateur et le mot de passe que vous avez au prélable conifgu
 
 
 Pour la configuration de la base de donéé regarder les images ce trouvant de Images/tutophpmyadmin
-
-
-
-#MANQUES
