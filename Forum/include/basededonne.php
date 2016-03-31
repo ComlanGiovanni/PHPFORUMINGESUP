@@ -11,6 +11,7 @@ try {
     echo $pe->getMessage();
 }
 
+
 /*
  *
  *Simple connexion a la base de donnée

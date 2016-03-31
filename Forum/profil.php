@@ -27,5 +27,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
     <p><?=$user->religion?></p>
     <p><?=$user->statutsocial?></p>
     <a href="<?=$user->lien?>" target="_blank"><?=$user->lien?></a>
+
 </div>
 <?php require 'include/footer.php'; ?>
