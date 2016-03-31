@@ -2,6 +2,14 @@
 
 Le forum a été realiser avec #PHP #HTML #CSS #JS #BOOSTRAP plus précisement avec le theme flatly de #bootswatch (https://bootswatch.com/).
 
+#Collaborateur
+					|||GitHub|||
+				------------------------------------
+	#COMLAN Giovanni ----->   https://github.com/ComlanGiovanni
+	#NADEAU BOBAN    ----->   https://github.com/nadeauboban
+	#Etienne Gobion  ----->   https://github.com/etiennegithub
+
+
 Pour faire fonctionner le site il faudras installer:
 
 	-apache
@@ -23,6 +31,7 @@ Vous vous pouvez opter pour un logiciel qui embloge pluisieur service en même t
 	-Esay php
 	-Vagrant
 -	-
+	-
 		
 #Sous Windows
 	-Installé Apache (vous vous pouvez opter pour un logiciel qui embloge pluisieur service en même temps tels-que
@@ -30,6 +39,7 @@ Vous vous pouvez opter pour un logiciel qui embloge pluisieur service en même t
 		-WAMP
 		-Esay php
 		-Vagrant
+		-
 
 #Sous Mac OS
 	-du côté de MACOSX
